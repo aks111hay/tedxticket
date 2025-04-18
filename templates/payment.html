@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>TEDxNIELIT Aurangabad | Ticket Payment</title>
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;800&display=swap" rel="stylesheet">
+  <style>
+    body {
+      margin: 0;
+      font-family: 'Montserrat', sans-serif;
+      background: linear-gradient(135deg, #2c003e, #4b003e, #870000);
+      color: white;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      min-height: 100vh;
+      padding: 20px;
+    }
+
+    .container {
+      background-color: #1a1a1a;
+      padding: 30px 40px;
+      border-radius: 20px;
+      box-shadow: 0 0 20px rgba(255, 0, 0, 0.4);
+      max-width: 500px;
+      width: 100%;
+    }
+
+    h1 {
+      text-align: center;
+      font-weight: 800;
+      margin-bottom: 30px;
+      color: #ff0033;
+    }
+
+    label {
+      font-weight: 600;
+      display: block;
+      margin-bottom: 5px;
+      color: #ccc;
+    }
+
+    input, select {
+      width: 100%;
+      padding: 10px 12px;
+      border: none;
+      border-radius: 10px;
+      margin-bottom: 20px;
+      background-color: #2e2e2e;
+      color: white;
+      font-size: 14px;
+      transition: 0.3s;
+    }
+
+    input:focus, select:focus {
+      outline: none;
+      background-color: #3b003b;
+      border: 1px solid #ff0033;
+    }
+
+    button {
+      width: 100%;
+      padding: 12px;
+      background: linear-gradient(45deg, #ff0033, #9c27b0);
+      color: white;
+      border: none;
+      font-size: 16px;
+      font-weight: 700;
+      border-radius: 12px;
+      cursor: pointer;
+      transition: 0.3s;
+    }
+
+    button:hover {
+      background: linear-gradient(45deg, #e60026, #7a1ca1);
+      transform: scale(1.02);
+    }
+
+    .footer {
+      text-align: center;
+      font-size: 12px;
+      margin-top: 10px;
+      color: #aaa;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <h1>TEDxNIELIT Aurangabad</h1>
+    <form action="/create-order" method="POST">
+      <label for="name">Full Name</label>
+      <input type="text" name="name" id="name" required>
+
+      <label for="email">Email</label>
+      <input type="email" name="email" id="email" required>
+
+      <label for="phone">Phone Number</label>
+      <input type="tel" name="phone" id="phone" required pattern="[0-9]{10}" maxlength="10">
+
+      <label for="ticket_type">Ticket Type</label>
+      <select name="ticket_type" id="ticket_type" required>
+        <option value="" disabled selected>Select a type</option>
+        <option value="Diamond">Diamond</option>
+        <option value="Golden">Golden</option>
+        <option value="Silver">Silver</option>
+      </select>
+
+      <label for="coupon">Coupon Code (if any)</label>
+      <input type="text" name="coupon_code" id="coupon">
+
+      <button type="submit">Buy Now</button>
+    </form>
+    <div class="footer"> | TEDxNielitAurangabad | 2025</div>
+  </div>
+</body>
+</html>

@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>TEDx Ticket - Success</title>
+  <style>
+    body {
+      background: #f0f0f0;
+      font-family: 'Segoe UI', sans-serif;
+      padding: 40px;
+      text-align: center;
+    }
+    .ticket {
+      background: white;
+      padding: 30px;
+      border-radius: 15px;
+      max-width: 600px;
+      margin: auto;
+      box-shadow: 0px 0px 10px rgba(0,0,0,0.1);
+    }
+    h2 {
+      color: #D10024;
+    }
+    .details {
+      text-align: left;
+      margin-top: 20px;
+      font-size: 16px;
+    }
+    .qr {
+      margin-top: 20px;
+    }
+  </style>
+</head>
+<body>
+  <div class="ticket">
+    <h2>🎟️ Ticket Confirmed!</h2>
+    <p>Thank you for registering for <strong>TEDxNIELIT Aurangabad 2025</strong>.</p>
+
+    <div class="details">
+      <p><strong>Name:</strong> {{ attendee.name }}</p>
+      <p><strong>Email:</strong> {{ attendee.email }}</p>
+      <p><strong>Ticket Type:</strong> {{ attendee.ticket_type }}</p>
+      <p><strong>Ticket ID:</strong> {{ attendee.ticket_id }}</p>
+      <p><strong>Amount Paid:</strong> ₹{{ attendee.paid_amount }}</p>
+    </div>
+
+    <div class="qr">
+      <p>Show this QR code at the venue:</p>
+      <img src="https://api.qrserver.com/v1/create-qr-code/?data=Ticket ID: {{ attendee.ticket_id }} Ticket Type: {{ attendee.ticket_type }}&amp;size=200x200" alt="QR Code">
+    </div>
+
+    <p style="margin-top: 20px;">📍 BAMU Auditorium, Chhatrapati Sambhajinagar, Maharashtra<br>📅 04/05/2025</p>
+  </div>
+</body>
+</html>

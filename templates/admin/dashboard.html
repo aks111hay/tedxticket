@@ -1,0 +1,67 @@
+<!-- templates/admin/dashboard.html -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Admin Dashboard</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+</head>
+<body>
+<nav class="navbar navbar-expand-lg navbar-dark bg-dark px-3">
+    <a class="navbar-brand" href="#">Admin Dashboard</a>
+    <div class="ms-auto">
+        <a href="{{ url_for('admin.logout') }}" class="btn btn-outline-light">Logout</a>
+    </div>
+</nav>
+
+<div class="container mt-4">
+    {% with messages = get_flashed_messages(with_categories=true) %}
+        {% if messages %}
+            {% for category, message in messages %}
+                <div class="alert alert-{{ category }}">{{ message }}</div>
+            {% endfor %}
+        {% endif %}
+    {% endwith %}
+
+    <h2>Tickets</h2>
+    <table class="table table-bordered">
+        <thead>
+            <tr>
+                <th>Type</th>
+                <th>Price</th>
+                <th>Limit</th>
+                <th>Update</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for ticket in tickets %}
+            <tr>
+                <form method="POST" action="{{ url_for('admin.set_ticket') }}">
+                    <input type="hidden" name="ticket_id" value="{{ ticket.id }}">
+                    <td>{{ ticket.type }}</td>
+                    <td><input type="number" step="0.01" name="price" value="{{ ticket.price }}" class="form-control"></td>
+                    <td><input type="number" name="limit" value="{{ ticket.limit }}" class="form-control"></td>
+                    <td><button class="btn btn-sm btn-primary">Save</button></td>
+                </form>
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+
+    <h2>Add Coupon</h2>
+    <form method="POST" action="{{ url_for('admin.add_coupon') }}" class="row g-2 mb-4">
+        <div class="col-md-5">
+            <input type="text" name="code" class="form-control" placeholder="Coupon Code" required>
+        </div>
+        <div class="col-md-5">
+            <input type="number" step="0.01" name="discount" class="form-control" placeholder="Discount %" required>
+        </div>
+        <div class="col-md-2">
+            <button class="btn btn-success w-100">Add</button>
+        </div>
+    </form>
+
+    <a href="{{ url_for('admin.download_attendees') }}" class="btn btn-outline-primary">Download Attendees CSV</a>
+</div>
+</body>
+</html>
