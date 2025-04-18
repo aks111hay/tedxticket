@@ -147,7 +147,7 @@ def thankyou():
     order_id = order_data['order_id']
 
     # Poll until success/failure or timeout
-    timeout = 5  # seconds
+    timeout = 120  # seconds
     interval = 2
     elapsed = 0
     status = None
