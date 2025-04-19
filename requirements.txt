@@ -19,7 +19,8 @@ marshmallow-enum==1.5.1
 mypy-extensions==1.0.0
 packaging==24.2
 --index-url https://phonepe.mycloudrepo.io/public/repositories/phonepe-pg-sdk-python 
---extra-index-url https://pypi.org/simple phonepe_sdk
+--extra-index-url https://pypi.org/simple
+phonepe_sdk
 python-dotenv==1.1.0
 pytz==2025.2
 qrcode==8.1
