@@ -4,6 +4,7 @@ from phonepe.sdk.pg.env import Env
 from phonepe.sdk.pg.payments.v2.models.request.standard_checkout_pay_request import StandardCheckoutPayRequest
 from uuid import uuid4
 import smtplib
+from flask_cors import CORS
 import qrcode
 import time
 import io
@@ -16,6 +17,7 @@ from models import Admin  # Make sure Admin model is imported
 from dotenv import load_dotenv
 load_dotenv()
 app = Flask(__name__)
+CORS(app)
 app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:///tedx.db'
 app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
 
