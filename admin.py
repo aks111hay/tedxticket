@@ -18,7 +18,7 @@ def login():
         password = request.form['password']
         admin = Admin.query.filter_by(email=email).first()
 
-        if admin and check_password_hash(admin.password_hash, password):
+        if admin and admin.password_hash==password:
             login_user(admin)
             return redirect(url_for('admin.dashboard'))
         else:
