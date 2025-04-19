@@ -26,7 +26,7 @@ login_manager.init_app(app)
 @login_manager.user_loader
 def load_user(user_id):
     return Admin.query.get(int(user_id))
-app.secret_key = 'ALAJusyu2y1738j' 
+app.secret_key = "' 
 # Configure PhonePe SDK
 client = StandardCheckoutClient.get_instance(
     client_id=os.getenv("CLIENT_ID"),
