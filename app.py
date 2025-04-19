@@ -32,7 +32,7 @@ client = StandardCheckoutClient.get_instance(
     client_id=os.getenv("CLIENT_ID"),
     client_secret=os.getenv("CLIENT_SECRET"),
     client_version=1,
-    env=Env.PRODUCTION  # Change to Env.PRODUCTION when live
+    env=Env.SANDBOX  # Change to Env.PRODUCTION when live
 )
 
 # Email config
