@@ -78,7 +78,7 @@ def init_db(app):
         if not Admin.query.filter_by(email=default_email).first():
             admin = Admin(
                 email=default_email,
-                password_hash=generate_password_hash(default_password)
+                password_hash=default_password
             )
             db.session.add(admin)
             print("[✓] Default Admin Created.")
